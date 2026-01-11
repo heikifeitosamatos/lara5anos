@@ -1,8 +1,10 @@
-/* Importação de fontes e configurações gerais */
+/* Importação das fontes com todos os pesos necessários */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Nunito:wght@400;700;800&display=swap');
+
 :root {
     --cor-principal: #2a9d8f;
     --cor-secundaria: #e9c46a;
-    --cor-destaque: #f4a261; /* Laranja bebê */
+    --cor-destaque: #f4a261;
     --cor-texto: #264653;
     --cor-rosa-bebe: #FFB6C1;
     --cor-amarelo-bebe: #FDFD96; 
@@ -15,200 +17,155 @@
 }
 
 body {
-    font-family: 'Nunito', sans-serif; /* Sua fonte original */
+    font-family: 'Baloo 2', cursive; /* Fonte arredondada igual à imagem */
     color: var(--cor-texto);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
-    
     background-image: url('fundo.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    
     overflow-x: hidden;
 }
 
-/* Estilo do cartão principal */
 .card-convite {
-    background-color: rgba(255, 255, 255, 0.75);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 500px;
-    padding: 30px 40px;
+    max-width: 450px;
+    padding: 35px 25px;
     text-align: center;
-    border: 5px solid var(--cor-principal);
+    border: 5px solid #2db3a3; /* Verde vibrante da borda */
     position: relative;
-    overflow: hidden;
 }
 
 header h1 {
-    font-family: 'Baloo 2', cursive; /* Sua fonte original */
     font-size: 2.2em;
     color: var(--cor-principal);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    font-weight: 800;
 }
 
+/* Nome: Rosa bebê e bem gordinho (Extra-bold) */
 .aniversariante span {
     background-color: var(--cor-rosa-bebe);
-    font-size: 2.2em;
+    font-size: 2.4em;
     color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-weight: 700;
-    font-family: 'Baloo 2', cursive;
+    padding: 10px 35px;
+    border-radius: 100px; /* Garante o formato pílula */
+    font-weight: 800;
     display: inline-block;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
     text-transform: uppercase;
 }
 
+/* Idade: Amarelo bebê em formato pílula */
 main .idade {
     font-size: 1.8em;
     color: white; 
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     background-color: var(--cor-amarelo-bebe);
-    padding: 5px 15px;
-    border-radius: 15px;
+    /* Contorno suave para o texto branco aparecer no fundo amarelo */
+    text-shadow: 1px 1px 0px #e0e085, -1px -1px 0px #e0e085; 
+    padding: 5px 30px;
+    border-radius: 100px;
     display: inline-block;
     font-weight: 700;
-    margin-top: 25px;
-    margin-bottom: 35px;
-    font-family: 'Baloo 2', cursive;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
 }
 
-.texto-com-fundo {
-    background-color: rgba(255, 255, 255, 0.95); 
-    padding: 3px 8px;
-    border-radius: 5px;
-    display: inline;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
-}
-
-.detalhes {
-    margin-bottom: 25px;
-}
-
+/* Blocos de informações (Data, Hora, Local) */
 .info-item {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 8px;
+    margin-bottom: 12px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 8px 15px;
+    border-radius: 15px;
+    border: 1px solid #e0f2f1;
 }
 
 .info-item p {
     font-size: 1.1em;
+    font-weight: 600;
 }
 
-/* Estilo para o botão de mapa */
+/* BOTÃO DO MAPA - Efeito piscar acelerado */
 .botao-mapa {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: white;
     border: 1px solid rgba(0,0,0,0.1); 
-    border-radius: 8px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
     color: var(--cor-texto);
     cursor: pointer;
     font-size: 1.5em;
     padding: 5px 10px;
-    transition: all 0.2s ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: glow 1.6s infinite alternate;
+    /* Reduzi de 1.6s para 0.4s para piscar bem rápido */
+    animation: glow 0.4s infinite alternate ease-in-out;
 }
 
 @keyframes glow {
   from {
-    box-shadow: 0 0 6px rgba(244, 162, 97, 0.6);
+    box-shadow: 0 0 4px rgba(244, 162, 97, 0.4);
+    transform: scale(1);
   }
   to {
-    box-shadow: 0 0 18px rgba(244, 162, 97, 0.9);
+    box-shadow: 0 0 20px rgba(244, 162, 97, 1);
+    transform: scale(1.05); /* Leve pulsação junto com o brilho */
   }
 }
 
-.botao-mapa:hover {
-    transform: translateY(-2px);
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.25);
-}
-
-.botao-mapa:active {
-    transform: translateY(1px);
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-}
-
+/* Botão Confirmar Presença: Laranja conforme a imagem */
 .botao-confirmar {
     display: inline-block;
-    background-color: var(--cor-destaque);
+    background-color: #f4a261;
     color: white;
-    padding: 15px 30px;
-    border-radius: 50px;
+    padding: 15px 45px;
+    border-radius: 100px;
     text-decoration: none;
-    font-size: 1.2em;
-    font-weight: 700;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    font-size: 1.3em;
+    font-weight: 800;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(244, 162, 97, 0.3);
+    transition: 0.2s;
 }
 
+.botao-confirmar:hover {
+    transform: scale(1.05);
+}
+
+/* Estilo do Rodapé/Contador */
 .contador-regressivo {
-    background-color: #f8f9fa;
+    background-color: #f8fcfb;
     padding: 15px;
-    border-radius: 10px;
-    margin-top: 40px;
-}
-
-.contador-regressivo h3 {
-    margin-bottom: 10px;
-    font-size: 1em;
-    color: var(--cor-texto);
-}
-
-#countdown {
-    display: flex;
-    justify-content: space-around;
-}
-
-.tempo {
-    display: flex;
-    flex-direction: column;
+    border-radius: 15px;
+    margin-top: 30px;
+    border: 1px solid #e0f2f1;
 }
 
 .tempo span {
-    font-size: 2.5em;
-    font-weight: 700;
+    font-size: 2.2em;
+    font-weight: 800;
     color: var(--cor-principal);
-    font-family: 'Baloo 2', cursive;
 }
 
-.tempo small {
-    font-size: 0.8em;
-    color: #6c757d;
-}
-
-footer {
-    margin-top: 20px;
-    font-weight: 600;
-    color: var(--cor-texto);
-}
-
+/* Confetes */
 .confete {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    top: -20px;
-    opacity: 0.8;
-    animation: cair 4s linear infinite;
+    width: 8px;
+    height: 8px;
+    top: -10px;
+    animation: cair 3s linear infinite;
 }
 
 @keyframes cair {
-    0% {
-        transform: translateY(0) rotate(0deg);
-    }
-    100% {
-        transform: translateY(120vh) rotate(720deg);
-        opacity: 0;
-    }
+    to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
 }
