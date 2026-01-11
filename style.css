@@ -1,6 +1,11 @@
 /* Importação das fontes */
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Nunito:wght@400;700;800&display=swap');
 
+header h1 {
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
 :root {
     --cor-principal: #2a9d8f;
     --cor-destaque: #f4a261;
@@ -116,7 +121,7 @@ body {
     text-decoration: none;
     font-size: 1.2em;
     font-weight: 800;
-    margin: 20px 0;
+    margin: 10px 0;
     transition: transform 0.2s;
 }
 
@@ -130,7 +135,7 @@ body {
     padding: 15px;
     border-radius: 20px;
     border: 1px solid #e0f2f1;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 #countdown {
@@ -166,10 +171,11 @@ body {
     width: 8px;
     height: 8px;
     top: -10px;
-    animation: cair 3s linear infinite;
+    animation: cair 6s linear forwards;
 }
 
 @keyframes cair {
     to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
 }
+
 
