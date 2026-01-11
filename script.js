@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- LÓGICA DO CONTADOR REGRESSIVO ---
-    const dataAlvo = new Date('2025-10-04T19:30:00');
+    const dataAlvo = new Date('2026-01-16T19:30:00');
 
     const diasEl = document.getElementById('dias');
     const horasEl = document.getElementById('horas');
@@ -61,10 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // Remove o confete do DOM após a animação
             setTimeout(() => {
                 confete.remove();
-            }, 6000);
+            }, 60000);
         }
     }
 
     criarConfetes();
 });
                 
+
