@@ -1,4 +1,4 @@
-/* Importação das fontes com todos os pesos necessários */
+/* Importação das fontes */
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Nunito:wght@400;700;800&display=swap');
 
 :root {
@@ -17,7 +17,7 @@
 }
 
 body {
-    font-family: 'Baloo 2', cursive; /* Fonte arredondada igual à imagem */
+    font-family: 'Baloo 2', cursive;
     color: var(--cor-texto);
     display: flex;
     justify-content: center;
@@ -36,125 +36,110 @@ body {
     border-radius: 30px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 450px;
-    padding: 35px 25px;
+    max-width: 500px; /* Um pouco mais largo para caber o contador em linha */
+    padding: 30px 20px;
     text-align: center;
-    border: 5px solid #2db3a3; /* Verde vibrante da borda */
+    border: 5px solid #2db3a3;
     position: relative;
 }
 
-header h1 {
-    font-size: 2.2em;
-    color: var(--cor-principal);
-    margin-bottom: 20px;
-    font-weight: 800;
-}
-
-/* Nome: Rosa bebê e bem gordinho (Extra-bold) */
+/* Títulos e Destaques */
 .aniversariante span {
     background-color: var(--cor-rosa-bebe);
-    font-size: 2.4em;
+    font-size: 2.2em;
     color: white;
-    padding: 10px 35px;
-    border-radius: 100px; /* Garante o formato pílula */
+    padding: 8px 30px;
+    border-radius: 100px;
     font-weight: 800;
     display: inline-block;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     margin-bottom: 15px;
     text-transform: uppercase;
 }
 
-/* Idade: Amarelo bebê em formato pílula */
 main .idade {
     font-size: 1.8em;
     color: white; 
     background-color: var(--cor-amarelo-bebe);
-    /* Contorno suave para o texto branco aparecer no fundo amarelo */
-    text-shadow: 1px 1px 0px #e0e085, -1px -1px 0px #e0e085; 
+    text-shadow: 1px 1px 0px #e0e085; 
     padding: 5px 30px;
     border-radius: 100px;
     display: inline-block;
     font-weight: 700;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
-/* Blocos de informações (Data, Hora, Local) */
-.info-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 12px;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 8px 15px;
-    border-radius: 15px;
-    border: 1px solid #e0f2f1;
-}
-
-.info-item p {
-    font-size: 1.1em;
-    font-weight: 600;
-}
-
-/* BOTÃO DO MAPA - Efeito piscar acelerado */
+/* Botão de Mapa com Piscar Ultra Rápido */
 .botao-mapa {
     background-color: white;
     border: 1px solid rgba(0,0,0,0.1); 
     border-radius: 10px;
-    color: var(--cor-texto);
     cursor: pointer;
     font-size: 1.5em;
     padding: 5px 10px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    /* Reduzi de 1.6s para 0.4s para piscar bem rápido */
-    animation: glow 0.4s infinite alternate ease-in-out;
+    animation: glow 0.2s infinite alternate ease-in-out;
 }
 
 @keyframes glow {
-  from {
-    box-shadow: 0 0 4px rgba(244, 162, 97, 0.4);
-    transform: scale(1);
-  }
-  to {
-    box-shadow: 0 0 20px rgba(244, 162, 97, 1);
-    transform: scale(1.05); /* Leve pulsação junto com o brilho */
-  }
+  from { box-shadow: 0 0 2px rgba(244, 162, 97, 0.4); transform: scale(1); }
+  to { box-shadow: 0 0 15px rgba(244, 162, 97, 1); transform: scale(1.08); }
 }
 
-/* Botão Confirmar Presença: Laranja conforme a imagem */
+/* Botão Confirmar */
 .botao-confirmar {
     display: inline-block;
     background-color: #f4a261;
     color: white;
-    padding: 15px 45px;
+    padding: 15px 40px;
     border-radius: 100px;
     text-decoration: none;
-    font-size: 1.3em;
+    font-size: 1.2em;
     font-weight: 800;
     margin-top: 20px;
-    box-shadow: 0 4px 10px rgba(244, 162, 97, 0.3);
-    transition: 0.2s;
 }
 
-.botao-confirmar:hover {
-    transform: scale(1.05);
-}
-
-/* Estilo do Rodapé/Contador */
+/* CONTADOR EM UMA SÓ LINHA */
 .contador-regressivo {
     background-color: #f8fcfb;
-    padding: 15px;
-    border-radius: 15px;
-    margin-top: 30px;
+    padding: 15px 10px;
+    border-radius: 20px;
+    margin-top: 25px;
     border: 1px solid #e0f2f1;
 }
 
+.contador-regressivo h3 {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #2a9d8f;
+}
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espaço entre os itens */
+}
+
+.tempo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+}
+
 .tempo span {
-    font-size: 2.2em;
+    font-size: 1.8em; /* Ajustado para caber na linha */
     font-weight: 800;
     color: var(--cor-principal);
+    line-height: 1;
+}
+
+.tempo small {
+    font-size: 0.7em;
+    text-transform: uppercase;
+    color: #6c757d;
+    font-weight: 700;
 }
 
 /* Confetes */
