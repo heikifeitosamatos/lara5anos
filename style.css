@@ -2,7 +2,7 @@
 :root {
     --cor-principal: #2a9d8f;
     --cor-secundaria: #e9c46a;
-    --cor-destaque: #f4a261; 
+    --cor-destaque: #f4a261; /* Laranja bebê */
     --cor-texto: #264653;
     --cor-rosa-bebe: #FFB6C1;
     --cor-amarelo-bebe: #FDFD96; 
@@ -15,7 +15,7 @@
 }
 
 body {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito', sans-serif; /* Sua fonte original */
     color: var(--cor-texto);
     display: flex;
     justify-content: center;
@@ -33,7 +33,7 @@ body {
 
 /* Estilo do cartão principal */
 .card-convite {
-    background-color: rgba(255, 255, 255, 0.85); /* Aumentei um pouco a opacidade para leitura */
+    background-color: rgba(255, 255, 255, 0.75);
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     width: 100%;
@@ -43,11 +43,10 @@ body {
     border: 5px solid var(--cor-principal);
     position: relative;
     overflow: hidden;
-    z-index: 1; /* Garante que o card fique acima dos confetes se necessário */
 }
 
 header h1 {
-    font-family: 'Baloo 2', cursive;
+    font-family: 'Baloo 2', cursive; /* Sua fonte original */
     font-size: 2.2em;
     color: var(--cor-principal);
     margin-bottom: 15px;
@@ -81,6 +80,15 @@ main .idade {
     box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
+.texto-com-fundo {
+    background-color: rgba(255, 255, 255, 0.95); 
+    padding: 3px 8px;
+    border-radius: 5px;
+    display: inline;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
 .detalhes {
     margin-bottom: 25px;
 }
@@ -93,17 +101,22 @@ main .idade {
     margin-bottom: 10px;
 }
 
-/* Botão de mapa corrigido */
+.info-item p {
+    font-size: 1.1em;
+}
+
+/* Estilo para o botão de mapa */
 .botao-mapa {
     background-color: rgba(255, 255, 255, 0.95);
     border: 1px solid rgba(0,0,0,0.1); 
     border-radius: 8px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     color: var(--cor-texto);
     cursor: pointer;
     font-size: 1.5em;
     padding: 5px 10px;
     transition: all 0.2s ease-in-out;
-    display: inline-flex; /* Melhor para alinhamento */
+    display: flex;
     align-items: center;
     justify-content: center;
     animation: glow 1.6s infinite alternate;
@@ -116,13 +129,18 @@ main .idade {
   to {
     box-shadow: 0 0 18px rgba(244, 162, 97, 0.9);
   }
-} /* Fechamento da animação estava faltando */
+}
 
 .botao-mapa:hover {
     transform: translateY(-2px);
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.25);
 }
 
-/* Botão de Confirmação */
+.botao-mapa:active {
+    transform: translateY(1px);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
 .botao-confirmar {
     display: inline-block;
     background-color: var(--cor-destaque);
@@ -132,20 +150,20 @@ main .idade {
     text-decoration: none;
     font-size: 1.2em;
     font-weight: 700;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.botao-confirmar:hover {
-    transform: scale(1.05);
-    background-color: #e76f51; /* Tom levemente mais escuro */
-}
-
-/* Contador Regressivo */
 .contador-regressivo {
     background-color: #f8f9fa;
     padding: 15px;
     border-radius: 10px;
     margin-top: 40px;
+}
+
+.contador-regressivo h3 {
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: var(--cor-texto);
 }
 
 #countdown {
@@ -165,7 +183,17 @@ main .idade {
     font-family: 'Baloo 2', cursive;
 }
 
-/* Animação de Confete */
+.tempo small {
+    font-size: 0.8em;
+    color: #6c757d;
+}
+
+footer {
+    margin-top: 20px;
+    font-weight: 600;
+    color: var(--cor-texto);
+}
+
 .confete {
     position: absolute;
     width: 10px;
@@ -173,10 +201,14 @@ main .idade {
     top: -20px;
     opacity: 0.8;
     animation: cair 4s linear infinite;
-    z-index: 0; /* Fica atrás do card se o card tiver z-index 1 */
 }
 
 @keyframes cair {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(120vh) rotate(720deg); opacity: 0; }
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(120vh) rotate(720deg);
+        opacity: 0;
+    }
 }
