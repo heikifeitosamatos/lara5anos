@@ -102,7 +102,7 @@ body {
 .info-item p {
     font-size: 1em;
     font-weight: 600;
-    text-align: left;
+    text-align: center;
     line-height: 1.2;
 }
 
@@ -172,3 +172,4 @@ body {
 @keyframes cair {
     to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
 }
+
