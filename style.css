@@ -3,11 +3,10 @@
 
 :root {
     --cor-principal: #2a9d8f;
-    --cor-secundaria: #e9c46a;
     --cor-destaque: #f4a261;
-    --cor-texto: #264653;
     --cor-rosa-bebe: #FFB6C1;
     --cor-amarelo-bebe: #FDFD96; 
+    --cor-texto: #264653;
 }
 
 * {
@@ -28,22 +27,20 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    overflow-x: hidden;
 }
 
 .card-convite {
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 500px; /* Um pouco mais largo para caber o contador em linha */
+    max-width: 450px;
     padding: 30px 20px;
     text-align: center;
     border: 5px solid #2db3a3;
     position: relative;
 }
 
-/* Títulos e Destaques */
+/* Nomes e Idade */
 .aniversariante span {
     background-color: var(--cor-rosa-bebe);
     font-size: 2.2em;
@@ -53,10 +50,9 @@ body {
     font-weight: 800;
     display: inline-block;
     margin-bottom: 15px;
-    text-transform: uppercase;
 }
 
-main .idade {
+.idade {
     font-size: 1.8em;
     color: white; 
     background-color: var(--cor-amarelo-bebe);
@@ -68,78 +64,100 @@ main .idade {
     margin-bottom: 25px;
 }
 
-/* Botão de Mapa com Piscar Ultra Rápido */
+/* --- LOCALIZAÇÃO (BOTÃO À ESQUERDA) --- */
+.info-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+
 .botao-mapa {
     background-color: white;
     border: 1px solid rgba(0,0,0,0.1); 
     border-radius: 10px;
+    padding: 8px;
     cursor: pointer;
-    font-size: 1.5em;
-    padding: 5px 10px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    animation: glow 0.2s infinite alternate ease-in-out;
+    flex-shrink: 0;
+    /* VELOCIDADE AJUSTADA: 0.5s para um piscar mais calmo */
+    animation: glow 0.5s infinite alternate ease-in-out;
 }
 
 @keyframes glow {
-  from { box-shadow: 0 0 2px rgba(244, 162, 97, 0.4); transform: scale(1); }
-  to { box-shadow: 0 0 15px rgba(244, 162, 97, 1); transform: scale(1.08); }
+  from { 
+    box-shadow: 0 0 2px rgba(244, 162, 97, 0.4); 
+    transform: scale(1); 
+  }
+  to { 
+    box-shadow: 0 0 15px rgba(244, 162, 97, 0.9); 
+    transform: scale(1.06); 
+  }
 }
 
-/* Botão Confirmar */
+.info-item p {
+    font-size: 1em;
+    font-weight: 600;
+    text-align: left;
+    line-height: 1.2;
+}
+
+/* Botão Confirmar Presença */
 .botao-confirmar {
     display: inline-block;
-    background-color: #f4a261;
+    background-color: var(--cor-destaque);
     color: white;
-    padding: 15px 40px;
+    padding: 12px 35px;
     border-radius: 100px;
     text-decoration: none;
     font-size: 1.2em;
     font-weight: 800;
-    margin-top: 20px;
+    margin: 20px 0;
+    transition: transform 0.2s;
 }
 
-/* CONTADOR EM UMA SÓ LINHA */
+.botao-confirmar:hover {
+    transform: scale(1.05);
+}
+
+/* --- CONTADOR EM UMA SÓ LINHA --- */
 .contador-regressivo {
     background-color: #f8fcfb;
-    padding: 15px 10px;
+    padding: 15px;
     border-radius: 20px;
-    margin-top: 25px;
     border: 1px solid #e0f2f1;
-}
-
-.contador-regressivo h3 {
-    font-size: 1em;
-    margin-bottom: 10px;
-    color: #2a9d8f;
+    margin-top: 10px;
 }
 
 #countdown {
     display: flex;
     justify-content: center;
-    gap: 15px; /* Espaço entre os itens */
+    gap: 15px;
 }
 
 .tempo {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 60px;
+    min-width: 55px;
 }
 
 .tempo span {
-    font-size: 1.8em; /* Ajustado para caber na linha */
+    font-size: 1.8em;
     font-weight: 800;
-    color: var(--cor-principal);
+    color: #2a9d8f;
     line-height: 1;
 }
 
 .tempo small {
     font-size: 0.7em;
-    text-transform: uppercase;
-    color: #6c757d;
     font-weight: 700;
+    color: #6c757d;
+    margin-top: 4px;
 }
 
 /* Confetes */
