@@ -2,7 +2,7 @@
 :root {
     --cor-principal: #2a9d8f;
     --cor-secundaria: #e9c46a;
-    --cor-destaque: #f4a261; /* Laranja bebê */
+    --cor-destaque: #f4a261; 
     --cor-texto: #264653;
     --cor-rosa-bebe: #FFB6C1;
     --cor-amarelo-bebe: #FDFD96; 
@@ -33,7 +33,7 @@ body {
 
 /* Estilo do cartão principal */
 .card-convite {
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(255, 255, 255, 0.85); /* Aumentei um pouco a opacidade para leitura */
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     width: 100%;
@@ -43,6 +43,7 @@ body {
     border: 5px solid var(--cor-principal);
     position: relative;
     overflow: hidden;
+    z-index: 1; /* Garante que o card fique acima dos confetes se necessário */
 }
 
 header h1 {
@@ -67,28 +68,17 @@ header h1 {
 
 main .idade {
     font-size: 1.8em;
-    /* 1. Cor da fonte alterada para branco */
     color: white; 
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Sombra para legibilidade */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     background-color: var(--cor-amarelo-bebe);
     padding: 5px 15px;
     border-radius: 15px;
     display: inline-block;
     font-weight: 700;
     margin-top: 25px;
-    margin-bottom: 35px; /* Adicionado espaço abaixo */
+    margin-bottom: 35px;
     font-family: 'Baloo 2', cursive;
     box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-
-/* Classe para textos com fundo branco */
-.texto-com-fundo {
-    background-color: rgba(255, 255, 255, 0.95); 
-    padding: 3px 8px;
-    border-radius: 5px;
-    display: inline;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
 }
 
 .detalhes {
@@ -103,34 +93,33 @@ main .idade {
     margin-bottom: 10px;
 }
 
-.info-item p {
-    font-size: 1.1em;
-}
-
-/* Estilo para o botão de mapa */
+/* Botão de mapa corrigido */
 .botao-mapa {
     background-color: rgba(255, 255, 255, 0.95);
     border: 1px solid rgba(0,0,0,0.1); 
     border-radius: 8px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     color: var(--cor-texto);
     cursor: pointer;
     font-size: 1.5em;
     padding: 5px 10px;
     transition: all 0.2s ease-in-out;
-    display: flex;
+    display: inline-flex; /* Melhor para alinhamento */
     align-items: center;
     justify-content: center;
+    animation: glow 1.6s infinite alternate;
 }
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 6px rgba(244, 162, 97, 0.6);
+  }
+  to {
+    box-shadow: 0 0 18px rgba(244, 162, 97, 0.9);
+  }
+} /* Fechamento da animação estava faltando */
 
 .botao-mapa:hover {
     transform: translateY(-2px);
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.25);
-}
-
-.botao-mapa:active {
-    transform: translateY(1px);
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Botão de Confirmação */
@@ -143,7 +132,12 @@ main .idade {
     text-decoration: none;
     font-size: 1.2em;
     font-weight: 700;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    transition: transform 0.2s ease;
+}
+
+.botao-confirmar:hover {
+    transform: scale(1.05);
+    background-color: #e76f51; /* Tom levemente mais escuro */
 }
 
 /* Contador Regressivo */
@@ -152,12 +146,6 @@ main .idade {
     padding: 15px;
     border-radius: 10px;
     margin-top: 40px;
-}
-
-.contador-regressivo h3 {
-    margin-bottom: 10px;
-    font-size: 1em;
-    color: var(--cor-texto);
 }
 
 #countdown {
@@ -177,35 +165,18 @@ main .idade {
     font-family: 'Baloo 2', cursive;
 }
 
-.tempo small {
-    font-size: 0.8em;
-    color: #6c757d;
-}
-
-footer {
-    margin-top: 20px;
-    font-weight: 600;
-    color: var(--cor-texto);
-}
-
 /* Animação de Confete */
 .confete {
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: #f00;
     top: -20px;
     opacity: 0.8;
     animation: cair 4s linear infinite;
+    z-index: 0; /* Fica atrás do card se o card tiver z-index 1 */
 }
 
 @keyframes cair {
-    0% {
-        transform: translateY(0) rotate(0deg);
-    }
-    100% {
-        transform: translateY(120vh) rotate(720deg);
-        opacity: 0;
-    }
-    }
-    
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(120vh) rotate(720deg); opacity: 0; }
+}
